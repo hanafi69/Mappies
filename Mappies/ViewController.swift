@@ -28,11 +28,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         freshObject()
         forViewDidLoad()
-        loadDataFromJson()
-        print(coordinatesMarker)
+        //loadDataFromJson()
     }
 
     @IBAction func btnHelp_TouchUpInside(_ sender: Any) {
@@ -167,8 +165,9 @@ extension ViewController: GMSMapViewDelegate {
         lblYouAreIn.text = "Location tapped at:"
         reverseGeocodeCoordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
         let marker = GMSMarker(position: coordinate)
+        marker.title = lblCurrentLocation.text
         marker.map = vMap
         coordinatesMarker.append(coordinate)
-        createPolygon()
+//        createPolygon()
     }
 }
